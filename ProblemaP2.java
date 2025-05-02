@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -12,16 +13,18 @@ public class ProblemaP2 {
     static final int inf = Integer.MAX_VALUE/2; //se divide por dos para que no haya overflow
 
     public static void main(String[] args) {
-        Scan scan = new Scan(System.in);
+        Scanner sc = new Scanner(System.in);
         StringBuilder out = new StringBuilder();
 
-        int casos = scan.nextInt();
+        int casos = sc.nextInt();
         for (int c = 0; c < casos; c++){
-            int n = scan.nextInt();
-            int E = scan.nextInt();
+            int n = sc.nextInt();
+            int E = sc.nextInt();
+            sc.nextLine();
+            
             boolean[] robot = new boolean[n+1];
 
-            String linea = scan.nextLine().trim();
+            String linea = sc.nextLine().trim();
             if (!linea.isEmpty()){
                 for (String token: linea.split(" ")){
                     if (!token.isEmpty()){
@@ -31,7 +34,7 @@ public class ProblemaP2 {
             }
 
             int[] poder = new int[n+1];
-            linea = scan.nextLine().trim();
+            linea = sc.nextLine().trim();
             if (!linea.isEmpty()){
                 String[] token = linea.split(" ");
                 for (int i = 0; i + 1 < token.length; i += 2){
@@ -127,33 +130,4 @@ public class ProblemaP2 {
         return queue.size() + " " + String.join(" ", queue);
     }
 
-
-
-    private static class Scan{
-
-        private final BufferedReader br;
-        private StringTokenizer st;
-
-        Scan(InputStream in){
-            br = new BufferedReader(new InputStreamReader(in));
-        }
-
-        String nextLine(){
-            try{
-                return br.readLine();
-            } catch (IOException e){
-                throw new RuntimeException(e);
-            }
-        }
-
-        String next(){
-            while (st ==null || !st.hasMoreTokens()){
-                st = new StringTokenizer(nextLine());
-            }
-            return st.nextToken();
-        }
-        int nextInt(){
-            return Integer.parseInt(next());
-        }
-    }
 }

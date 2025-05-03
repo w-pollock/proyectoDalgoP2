@@ -1,3 +1,6 @@
+//Autores: 1. Nicolas Hernandez - 202322148
+//         2. William Pollock - 202221321
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
